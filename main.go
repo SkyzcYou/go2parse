@@ -26,7 +26,7 @@ func testRedisConf()  {
 	fmt.Println("redis.conf")
 
 	i := conf.New("./config_file/redis/redis.conf")
-	fmt.Println(i)
+	fmt.Println(i.Values["lua-time-limit"])
 	fmt.Println(i.Get("appendfilename"))
 }
 // mysql.cnf 文件解析
@@ -36,7 +36,10 @@ func testCnf()  {
 
 	i := conf.New("./config_file/mysql/mysql_simple.cnf")
 	fmt.Println(i)
-	fmt.Println(i.Get("mysqld"))
+	i2 := i.Values["mysqld"]
+	fmt.Println(i2)
+
+
 }
 // ini 格式配置文件解析
 func testINI()  {
